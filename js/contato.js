@@ -13,7 +13,7 @@ export async function getContatosPorNome (nome) {
     return data
 }
 
-async function getContato (id) {
+export async function getContato (id) {
     const url = `https://bakcend-fecaf-render.onrender.com/contatos/${id}`
     const response = await fetch(url)
     const data = await response.json()
@@ -31,11 +31,10 @@ export async function postContato(contato) {
         body: JSON.stringify(contato)
     }
     const response = await fetch (url, options)
-
     return response.ok
 }
 
-async function putContato(id, contato) {
+export async function putContato(id, contato) {
     const url = `https://bakcend-fecaf-render.onrender.com/contatos/${id}`
     const options = {
         method: 'PUT',
@@ -50,11 +49,14 @@ async function putContato(id, contato) {
 }
 
 
-async function deleteContato(id) {
+export async function deleteContato(id) {
+
     const url = `https://bakcend-fecaf-render.onrender.com/contatos/${id}`
     const options = {
-        method: 'DELETE'
+            method: 'DELETE'
     }    
     const response = await fetch(url, options)
-    return response.ok
+        return response.ok
 }
+
+    
